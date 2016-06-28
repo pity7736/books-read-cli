@@ -1,0 +1,3 @@
+[submodule "src/books_read"]
+	path = src/books_read
+	url = git@github.com:pity7736/books_read.git

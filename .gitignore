@@ -1,2 +1,5 @@
+# pycache
+src/__pycache__/
+
 # pycharm files
 .idea/

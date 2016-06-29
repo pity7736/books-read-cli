@@ -1,34 +1,23 @@
-from src.topic_menu import TopicMenu
+from .topic_menu import TopicMenu
+
+from .menu import Menu
 
 
-class MainMenu:
-
-    def __init__(self):
-        self.option = None
-
-    def run(self):
-        self._show()
-        self._set_option()
-        self._run_option_selected()
-
-    @staticmethod
-    def _show():
-        print("Books Read Menú")
-        print("""
-            0) Salir
-            1) Temas
-        """)
-
-    def _set_option(self):
-        self.option = input('seleccione opción: ')
+class MainMenu(Menu):
+    name = 'Menú Principal'
+    options = '''
+    0) Salir
+    1) Temas
+    '''
 
     def _run_option_selected(self):
-        if not self.option:
-            return self._set_option()
+        if not self.option_selected:
+            self._set_option()
 
-        if self.option == '0':
+        if self.option_selected == '0':
+            print('Saliendo...')
             return
-        elif self.option == '1':
+        elif self.option_selected == '1':
             topic_menu = TopicMenu()
             topic_menu.run()
 

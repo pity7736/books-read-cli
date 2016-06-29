@@ -1,39 +1,31 @@
-from src.books_read.src.controllers.create_topic import CreateTopicController
+from src.books_read.src.controllers import CreateTopicController
+
+from .menu import Menu
 
 
-class TopicMenu:
+class TopicMenu(Menu):
+    name = 'Menú de Temas'
+    options = '''
+    0) Menú principal
+    1) Registrar
+    '''
 
     def __init__(self):
-        self.option = None
+        super(TopicMenu, self).__init__()
         self.name_topic = None
 
-    def run(self):
-        self._show()
-        self._set_option()
-        self._run_option_selected()
-
-    @staticmethod
-    def _show():
-        print('Menú de temas')
-        print('''
-            0) Salir
-            1) Registrar
-        ''')
-
-    def _set_option(self):
-        self.option = input('seleccione opción: ')
-
     def _run_option_selected(self):
-        if not self.option:
-            return self._set_option()
+        if not self.option_selected:
+            self._set_option()
 
-        if self.option == '0':
+        if self.option_selected == '0':
+            print('Saliendo al menú principal...\n')
             return
-        elif self.option == '1':
+        elif self.option_selected == '1':
             self._ask_name()
             create_controller = CreateTopicController(self.name_topic)
             create_controller.save()
-            print('Tema registrado exitosamente.')
+            print('Tema registrado exitosamente.\n')
 
         self.run()
 

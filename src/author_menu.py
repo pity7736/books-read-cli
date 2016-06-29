@@ -1,18 +1,18 @@
-from src.books_read.src.controllers import CreateTopicController
+from src.books_read.src.controllers import CreateAuthorController
 
 from .menu import Menu
 
 
-class TopicMenu(Menu):
-    name = 'Menú de Temas'
+class AuthorMenu(Menu):
+    name = 'Menú de autores'
     options = '''
     0) Menú principal
     1) Registrar
     '''
 
     def __init__(self):
-        super(TopicMenu, self).__init__()
-        self.name_topic = None
+        super(AuthorMenu, self).__init__()
+        self.data = {}
 
     def _run_option_selected(self):
         if not self._selected_option:
@@ -22,12 +22,15 @@ class TopicMenu(Menu):
             print('Saliendo al menú principal...\n')
             return
         elif self._selected_option == '1':
-            self._ask_name()
-            create_controller = CreateTopicController(self.name_topic)
+            self._ask_data()
+            create_controller = CreateAuthorController(**self.data)
             create_controller.save()
             print('Tema registrado exitosamente.\n')
 
         self.run()
 
-    def _ask_name(self):
-        self.name_topic = input('ingrese tema: ')
+    def _ask_data(self):
+        first_name = input('Ingrese nombre: ')
+        last_name = input('Ingrese apellido: ')
+        self.data['first_name'] = first_name
+        self.data['last_name'] = last_name

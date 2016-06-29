@@ -6,7 +6,7 @@ class Menu(metaclass=ABCMeta):
     options = ''
 
     def __init__(self):
-        self.option_selected = None
+        self._selected_option = None
 
     def run(self):
         self._show()
@@ -18,7 +18,7 @@ class Menu(metaclass=ABCMeta):
         print(self.options)
 
     def _set_option(self):
-        self.option_selected = input('seleccione opción: ')
+        self._selected_option = input('seleccione opción: ')
 
     @abstractmethod
     def _run_option_selected(self):

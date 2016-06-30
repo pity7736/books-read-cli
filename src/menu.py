@@ -11,7 +11,7 @@ class Menu(metaclass=ABCMeta):
     def run(self):
         self._show()
         self._set_option()
-        self._run_option_selected()
+        self._run_selected_option()
 
     def _show(self):
         print(self.name)
@@ -21,5 +21,5 @@ class Menu(metaclass=ABCMeta):
         self._selected_option = input('seleccione opción: ')
 
     @abstractmethod
-    def _run_option_selected(self):
+    def _run_selected_option(self):
         pass

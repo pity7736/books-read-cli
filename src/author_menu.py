@@ -14,7 +14,7 @@ class AuthorMenu(Menu):
         super(AuthorMenu, self).__init__()
         self.data = {}
 
-    def _run_option_selected(self):
+    def _run_selected_option(self):
         if not self._selected_option:
             self._set_option()
 

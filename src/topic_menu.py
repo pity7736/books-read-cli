@@ -14,7 +14,7 @@ class TopicMenu(Menu):
         super(TopicMenu, self).__init__()
         self.name_topic = None
 
-    def _run_option_selected(self):
+    def _run_selected_option(self):
         if not self._selected_option:
             self._set_option()
 

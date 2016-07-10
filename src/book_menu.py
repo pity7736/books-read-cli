@@ -43,7 +43,6 @@ class BookMenu(Menu):
         topic_name = input('Ingrese nombre de tema: ')
         search_controller = SearchTopicsController()
         topics = search_controller.filter_by_name(topic_name)
-        print(dir(topics))
         print('Listado de temas disponibles:')
         for i, topic in enumerate(topics):
             print('{0}) {1}'.format(i, topic.name))

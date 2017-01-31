@@ -1,6 +1,6 @@
 from src.books_read.src.controllers import CreateAuthorController
 
-from .menu import Menu
+from src.menu import Menu
 
 
 class AuthorMenu(Menu):

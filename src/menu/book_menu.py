@@ -1,7 +1,7 @@
 from src.books_read.src.controllers import CreateBookController, \
     SearchTopicsController
 
-from .menu import Menu
+from src.menu import Menu
 
 
 class BookMenu(Menu):

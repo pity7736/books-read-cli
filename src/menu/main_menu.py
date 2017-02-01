@@ -1,4 +1,5 @@
 from .author_menu_command import AuthorMenuCommand
+from .book_menu_command import BookMenuCommand
 from ..commands import ExitCommand
 from .menu import Menu
 from .topic_menu_command import TopicMenuCommand
@@ -11,10 +12,7 @@ class MainMenu(Menu):
         commands = (
             self.exit_command,
             TopicMenuCommand('Temas'),
-            AuthorMenuCommand('Autores')
+            AuthorMenuCommand('Autores'),
+            BookMenuCommand('Libros')
         )
         return commands
-
-    def run(self):
-        while self.exit_command.is_closed() is False:
-            super(MainMenu, self).run()

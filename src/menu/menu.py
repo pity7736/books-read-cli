@@ -16,9 +16,10 @@ class Menu(metaclass=ABCMeta):
         pass
 
     def run(self):
-        self._show()
-        option = self._get_option()
-        self._commands[option].execute()
+        while self.exit_command.is_closed() is False:
+            self._show()
+            option = self._get_option()
+            self._commands[option].execute()
 
     def _show(self):
         print()

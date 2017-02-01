@@ -1,5 +1,6 @@
 from .command import Command
 from .create_author_command import CreateAuthorCommand
+from .create_book_command import CreateBookCommand
 from .create_topic_command import CreateTopicCommand
 from .exit_command import ExitCommand
 from .search_all_topics_command import SearchAllTopicCommand

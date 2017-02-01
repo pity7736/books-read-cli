@@ -2,8 +2,6 @@ from abc import ABCMeta, abstractmethod
 
 
 class Menu(metaclass=ABCMeta):
-    name = ''
-    options = ''
 
     def __init__(self):
         self._commands = []

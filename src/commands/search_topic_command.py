@@ -1,5 +1,5 @@
-from .command import Command
 from ..books_read.src.controllers.search_topics import SearchTopicsController
+from .command import Command
 
 
 class SearchTopicCommand(Command):

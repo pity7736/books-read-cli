@@ -8,4 +8,4 @@ class CreateTopicCommand(Command):
         name_topic = input('ingrese nombre de tema: ')
         create_controller = CreateTopicController(name_topic)
         create_controller.save()
-        print('Tema registrado existosamente')
+        print('Tema registrado existosamente\n')

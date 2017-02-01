@@ -1,6 +1,5 @@
-from src.books_read.src.controllers import CreateAuthorController
-
-from src.menu import Menu
+from ..commands import ExitCommand, CreateAuthorCommand
+from .menu import Menu
 
 
 class AuthorMenu(Menu):
@@ -10,27 +9,10 @@ class AuthorMenu(Menu):
     1) Registrar
     '''
 
-    def __init__(self):
-        super(AuthorMenu, self).__init__()
-        self.data = {}
-
-    def _run_selected_option(self):
-        if not self._selected_option:
-            self._set_option()
-
-        if self._selected_option == '0':
-            print('Saliendo al menú principal...\n')
-            return
-        elif self._selected_option == '1':
-            self._ask_data()
-            create_controller = CreateAuthorController(**self.data)
-            create_controller.save()
-            print('Tema registrado exitosamente.\n')
-
-        self.run()
-
-    def _ask_data(self):
-        first_name = input('Ingrese nombre: ')
-        last_name = input('Ingrese apellido: ')
-        self.data['first_name'] = first_name
-        self.data['last_name'] = last_name
+    def _get_options(self):
+        self.exit_command = ExitCommand('Menú principal')
+        commands = (
+            self.exit_command,
+            CreateAuthorCommand('Registrar')
+        )
+        return commands
